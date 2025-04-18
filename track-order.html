@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order - Pandey Traders</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Pandey Traders</h1>
+            <p>Sukhdev Pandey Khad Beej Bhandar</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="track-order-section">
+        <h2>Track Your Order</h2>
+        <form id="track-order-form">
+            <label for="order-id">Enter Order ID:</label>
+            <input type="text" id="order-id" placeholder="Enter your order ID" required><br><br>
+            <button type="submit">Track Order</button>
+        </form>
+
+        <div id="order-status" style="display:none;">
+            <h3>Order Status:</h3>
+            <p id="status-message">Your order is being processed.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Pandey Traders. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('track-order-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const orderId = document.getElementById('order-id').value;
+            const orderStatusDiv = document.getElementById('order-status');
+            const statusMessage = document.getElementById('status-message');
+
+            if (orderId === "123456") {
+                statusMessage.textContent = "Your order has been shipped and is on its way!";
+            } else if (orderId === "789xyz") {
+                statusMessage.textContent = "Your order is being processed and will be shipped soon.";
+            } else {
+                statusMessage.textContent = "Sorry, we couldn't find your order. Please check the order ID.";
+            }
+
+            orderStatusDiv.style.display = "block";
+        });
+    </script>
+</body>
+</html>

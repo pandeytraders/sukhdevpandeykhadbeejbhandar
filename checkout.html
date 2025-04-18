@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Pandey Traders</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Pandey Traders</h1>
+            <p>Sukhdev Pandey Khad Beej Bhandar</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="checkout-section">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be displayed here using JavaScript -->
+        </div>
+
+        <h3>Total: ₹<span id="total-price">0</span></h3>
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Pandey Traders. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let cart = ['Seeds', 'Fertilizers'];  // Example items in the cart
+        let prices = { 'Seeds': 100, 'Fertilizers': 200 };  // Example prices
+        let total = 0;
+
+        // Display cart items and total price
+        const cartItemsContainer = document.getElementById('cart-items');
+        cart.forEach(item => {
+            let itemElement = document.createElement('p');
+            itemElement.textContent = item + ' - ₹' + prices[item];
+            cartItemsContainer.appendChild(itemElement);
+            total += prices[item];
+        });
+
+        document.getElementById('total-price').textContent = total;
+
+        function proceedToPayment() {
+            alert("Proceeding to payment...");
+            
+            // Redirecting to payment page or payment gateway
+            // For example, redirecting to 'payment.html' page
+            window.location.href = 'payment.html';  // Replace with actual payment page URL or payment gateway URL
+        }
+    </script>
+</body>
+</html>
